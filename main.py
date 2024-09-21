@@ -8,7 +8,7 @@ def read_config(file_path):
     fieldnames = ['n0', 'h', 'nk', 'a', 'b', 'c']
     with open(file_path, mode='r') as file:
         reader = csv.DictReader(file, fieldnames=fieldnames, delimiter=",")
-        config = next(reader)  # Читаем первую (и единственную) строку
+        config = next(reader)  # Читаем первую строку
     return {
         'n0': int(config['n0']),
         'h': int(config['h']),
@@ -56,6 +56,4 @@ def main():
     # fun(config['n0'], config['h'], config['nk'], config['a'], config['b'], config['c'])
     write_results_to_csv(results, 'results')
 
-
-if __name__ == "__main__":
-    main()
+main()
